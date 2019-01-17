@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<title>Level 1 - Coding Exam #2</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://league-central.github.io/curriculum/style/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+    <script src="https://league-central.github.io/curriculum/script/headerAndFooter.js"></script>
+    
+    
+    <body>
+        <div id ="wrap">
+            <div id ="main">
+ 
+        <div id = "module4ColIndex">      
+    
+    <h2>Level 1 - Coding Exercise #2</h2>    
+    
+    <h3>Objective</h3>
+   
+    <p class="normal">You are going to make a Java application that teaches young children the sounds that some animals make. It should look like the sample below:</p>     
+            <br>
+            
+    <img alt="animalSounds.png" src="images/animalSounds.png" style="width: 431.00px; height: 80.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="">      
+            
+    <br><br>        
+    <p class="normal">When the user clicks on a button, the program will play the sound the animal makes. </p><br>
+            
+     <p class="normal">You can use the method below to play the correct sound. Sample sounds have been supplied with the coding exercise project you cloned. </p>        
+            
+            
+<br><br>            
+            
+<p class="code">        
+<pre>
+    public void playNoise(String soundFile) {
+		try {
+			AudioClip sound = JApplet.newAudioClip(getClass().getResource(soundFile));
+			sound.play();
+			Thread.sleep(3400);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+</pre>
+</p>
+            </div>
+            </div>  
+        </div>
+     
+          <div id="footer">      
+            <script>addFooter();</script>
+        </div>
+
+
+</body>
+</html>

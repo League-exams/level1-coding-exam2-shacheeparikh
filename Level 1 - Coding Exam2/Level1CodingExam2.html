@@ -26,15 +26,33 @@
     <img alt="animalSounds.png" src="images/animalSounds.png" style="width: 431.00px; height: 80.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="">      
             
     <br><br>        
-    <p class="normal">When the user clicks on a button, the program will play the sound the animal makes. </p><br>
+    <p class="normal">When the user clicks on a button, the program will play the sound/video the animal makes. </p><br>
             
-     <p class="normal">You can use the method below to play the correct sound. Sample sounds have been supplied with the coding exercise project you cloned. </p>        
+     <p class="normal">You can use the method below to play the correct sound/video. Sample sounds have been supplied with the coding exercise project you cloned. </p>        
             
             
 <br><br>            
             
 <p class="code">        
 <pre>
+
+   public static void playVideo(String videoID) {
+		// Workaround for Linux because "Desktop.getDesktop().browse()" doesn't work on
+		// some Linux implementations
+        try{
+		if (System.getProperty("os.name").toLowerCase().contains("linux")) {
+				if (Runtime.getRuntime().exec(new String[] { "which", "xdg-open" }).getInputStream().read() != -1) {
+					Runtime.getRuntime().exec(new String[] { "xdg-open", videoID });
+				}
+		} else {
+				URI uri = new URI(videoID);
+				java.awt.Desktop.getDesktop().browse(uri);
+		}	
+            } catch (Exception e) {
+				e.printStackTrace();
+			}
+	}
+	
     public void playNoise(String soundFile) {
 		try {
 			AudioClip sound = JApplet.newAudioClip(getClass().getResource(soundFile));
